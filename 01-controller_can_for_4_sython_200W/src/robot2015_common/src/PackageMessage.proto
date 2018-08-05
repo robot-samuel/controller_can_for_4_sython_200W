@@ -1,0 +1,20 @@
+message PackageMessage {  
+	optional string Token = 1;    // 空闲无用 
+	required string SessionId =2; //
+	optional int64 Time=3;  //   时间戳
+	optional string From=4; //
+	optional string To=5;   //
+	optional Call CallMessage = 6;     //
+	optional Result ResultMessage= 7;  //
+	optional string robotID= 8;  //
+
+	message  Call {  
+		optional string Service = 1;   //预留
+		required string Function = 2;  //命令
+		repeated bytes Parameters = 3; //
+	};  
+	message Result {
+		required int32 ErrorCode=1;    //������룬0������ȷ������������ִ���
+		optional bytes ResultData = 2; //���ؽ��
+	};  
+};  

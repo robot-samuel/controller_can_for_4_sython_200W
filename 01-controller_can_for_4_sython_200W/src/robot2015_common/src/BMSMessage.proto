@@ -1,0 +1,9 @@
+message BmsMessage {
+    optional int32 Stat = 1;   //ͨ通信在线状态
+    optional int32 BMS_SOC=2;   //当前容量
+    optional float BMS_Voltage=3;   //电池电压
+    optional float BMS_sys_Current=4;  /电池电流
+
+
+
+};

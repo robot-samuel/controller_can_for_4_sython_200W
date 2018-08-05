@@ -1,0 +1,10 @@
+message AlarmMessage {
+	optional bool CtrolBoxHighTemAlarm = 1;   	//控制箱高温
+	optional bool CtrolBoxFrozenTemAlarm = 2;   	//控制箱低温
+	optional bool BMSModComLostAlarm = 3;   	//BMS通信丢失
+	optional bool Emergency_Status_stop=4;     //急停触发
+	
+	optional bool EcanExternSnsorNdeOFF=5;     //协处理器采集模块通信丢失
+	optional bool JoyTestNodeOFF=7;     //遥控器节点断开
+
+};

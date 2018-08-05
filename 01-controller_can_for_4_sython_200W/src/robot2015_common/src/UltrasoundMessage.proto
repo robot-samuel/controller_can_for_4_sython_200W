@@ -1,0 +1,5 @@
+message UltrasoundMessage {
+	optional  int32 online=1; //通信状态
+	optional  int32 Ldistance_Ultrasonic=2;  //距离数据左
+	optional  int32 Rdistance_Ultrasonic=2;  //距离数据右
+};

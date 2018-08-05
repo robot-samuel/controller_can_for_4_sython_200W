@@ -1,0 +1,17 @@
+message ExternSensor {
+	optional int32 online=8; //硬件模块通信状态
+	repeated  int32 Temp_Pt100= 1; //暂时不用了
+	repeated  Mode_Temp_humi Temp_humi= 2; //机舱温湿度传感器
+	repeated int32 IO_Infrared=4;   //红外反射传感器通道
+	repeated int32 IO_collision=5;   //IO通断通道
+	optional string LED_status= 6; //LED ״̬ "LED_CLOSE" "LED_GREEN" "LED_RED" "LED_BLUE" "LED_GREEN_FLI" "LED_RED_FLI" "LED_BLUE_FLI"
+
+
+	
+	message Mode_Temp_humi{
+		optional int32 interior_temp=1;  //�����ڲ��¶�
+		optional int32 interior_humi=2;  //�����ڲ�ʪ��
+	};
+
+};
+

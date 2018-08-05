@@ -1,0 +1,36 @@
+import "ExternSensor.proto";
+import "BMSMessage.proto";
+import "ErrorMessage.proto";
+import "AlarmMessage.proto";
+import "UltrasoundMessage.proto";
+
+
+
+message ControllerMessage {
+	optional int32 Stat = 1;   //底层模块状态
+	repeated Dirver DirverMessage = 2;  //驱动器状态
+	optional ExternSensor SensorMsg = 3;  //外部传感器状态
+	optional int32 ctrl_device = 4;          //当前控制ID 0-NULL 1-NET_USER 2-RS232_USER 3-LASER_USER 4-REMOTE_JOY 5-USBREMOTE_JOY  
+	optional BmsMessage bmsMsg = 5;          //电池信息
+	optional ErrorMessage errormsg=6;      //运动控制模块错误
+	optional AlarmMessage alarmmsg=7;      //运动控制模块预警状态
+	optional UltrasoundMessage Ultrasound=8; //超声波防跌落信息
+	optional float LineVelocity=9;    //线速度估值
+	optional float THVelocity=10;    //角速度估值
+
+
+	message Dirver{
+		optional int32 device_status= 1; //驱动器在线状态
+		optional int32 device_add= 2; //驱动器地址
+		optional int32 ActVelocity=3;   //实际速度
+		optional int32 SetVelocity=4;   //设置速度
+		optional float ctrl_dc_Voltage=5;  //母线电压
+		optional float CTRL_IPM_TEMPERATURE=6; //驱动器温度
+		optional int32 ActualPos=7;    //编码器数据
+		optional bool EmergencyInputValue=8;    //急停状态
+		optional string Error = 9; //错误代码
+
+		
+	};
+	
+};

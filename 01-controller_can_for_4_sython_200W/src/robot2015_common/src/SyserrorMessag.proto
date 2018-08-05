@@ -1,0 +1,4 @@
+	message  Erroressage {  
+		optional int32 cameraNetlost = 1;
+        optional int32 infredcamera = 2;
+	}; 

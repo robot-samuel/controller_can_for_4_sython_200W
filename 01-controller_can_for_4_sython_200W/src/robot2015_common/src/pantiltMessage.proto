@@ -1,0 +1,7 @@
+	message  pantiltMessage {  
+		optional online =1 ;  //云台连接状态
+		optional pan =2 ;  //水平位置
+		optional tilt =3 ;  //俯仰位置
+		optional zoom =4 ;  //zoom
+		optional foucs =5 ;  //焦距值
+	}; 

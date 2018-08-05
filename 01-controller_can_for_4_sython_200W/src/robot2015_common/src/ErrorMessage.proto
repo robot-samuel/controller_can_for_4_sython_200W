@@ -1,0 +1,27 @@
+message ErrorMessage { 
+	optional bool CarLeftFDriverError = 1;   	//左前驱动器错误
+	optional bool CarRightFDriverError = 2;  	//右前驱动器错误
+	optional bool CarLeftBDriverError = 3;   	//左后驱动器错误
+	optional bool CarRightBDriverError = 4;  	//右后驱动器错误
+	
+	optional bool LeftFDriverComError = 5;   	//左前驱动器通信丢失
+	optional bool RightFDriverComError = 6;  	//右前驱动器通信丢失
+	optional bool LeftBDriverComError = 7;   	//左后驱动器通信丢失
+	optional bool RightBDriverComError = 8;  	//右后驱动器通信丢失
+	
+	optional bool ExternComDevError = 9;  	//协处理器通信丢失
+	optional bool BMSSysError = 10;  	//BMS同信丢失
+	optional bool ObstacleStopError = 11;  //底层避障停车
+	
+	optional bool CashSwitchStopError = 12;  //碰撞停车
+	optional bool CurrentOverloadError = 13;  //过流报警
+	
+	optional bool DriverLeftFNodeOFF=14;     //左前驱动器管理节点死机
+	optional bool DriverLeftBNodeOFF=15;     //左后驱动器管理节点死机
+	optional bool DriverRightFNodeOFF=16;     //右前驱动器管理节点死机
+	optional bool DriverRightBNodeOFF=17;     //右后驱动器管理节点死机
+	
+	optional bool BObstacleStopError = 18;  //后端避障停车
+	optional bool DropStopError = 19;  //防跌落报警
+
+};

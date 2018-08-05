@@ -1,0 +1,21 @@
+import "ControllerMessage.proto";
+import "pantiltMessage.proto";
+
+message RobotStatusMessage {
+	optional int32 Stat = 1;   //
+	optional ControllerMessage Controller =2;  /底层硬件状态
+	optional  camera  cameramsg =3;
+	optional infredcamera  infredcameramsg =4;
+	optional pantiltMessage pantlitmsg =5;
+
+	message  camera {  
+		optional int32 online =1 ;  //相机连接状态
+	};
+	message  infredcamera {  
+		optional int32 online =1 ;  //相机连接状态
+
+	};  
+ 
+
+ 
+}

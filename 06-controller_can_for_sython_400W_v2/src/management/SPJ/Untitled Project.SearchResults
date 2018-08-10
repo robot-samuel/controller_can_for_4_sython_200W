@@ -1,0 +1,4 @@
+---- ros_zmqupdate_SendRpc Matches (3 in 2 files) ----
+DgvManage.cpp (f:\local_svn\qtsvn\02-src\trunk\02-robot\01-controller_232_for_sython_400w_v1\src\management\src):                   ros_zmqupdate_SendRpc(pack_dirv_Dcupdataal());
+DgvManage.cpp (f:\local_svn\qtsvn\02-src\trunk\02-robot\01-controller_232_for_sython_400w_v1\src\management\src):void Dgv_Manage::ros_zmqupdate_SendRpc(std::string msg)
+DgvManage.h (f:\local_svn\qtsvn\02-src\trunk\02-robot\01-controller_232_for_sython_400w_v1\src\management\src):	void ros_zmqupdate_SendRpc(std::string msg);

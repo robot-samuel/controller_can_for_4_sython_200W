@@ -1,0 +1,10 @@
+---- bit5_EMGING Matches (11 in 3 files) ----
+synctronDriver.cpp (f:\local_svn\qt_Á¸¿âÑ²¼ì»úÆ÷ÈË\02-src\trunk\02-controller\06-controller_can_for_sython_400w_v2\src\sythondriver\src):				//m_BitStatus.bit5_EMGING
+synctronDriver.cpp (f:\local_svn\qt_Á¸¿âÑ²¼ì»úÆ÷ÈË\02-src\trunk\02-controller\06-controller_can_for_sython_400w_v2\src\sythondriver\src):						m_BitStatus.bit5_EMGING = 0;   //
+synctronDriver.cpp (f:\local_svn\qt_Á¸¿âÑ²¼ì»úÆ÷ÈË\02-src\trunk\02-controller\06-controller_can_for_sython_400w_v2\src\sythondriver\src):						m_BitStatus.bit5_EMGING = 1;   //¼±Í£±»´¦·£
+synctronDriver.cpp (f:\local_svn\qt_Á¸¿âÑ²¼ì»úÆ÷ÈË\02-src\trunk\02-controller\06-controller_can_for_sython_400w_v2\src\sythondriver\src):	//m_BitStatus.bit5_EMGING = (statues>>5)&0x0001; 
+synctronDriver.cpp (f:\local_svn\qt_Á¸¿âÑ²¼ì»úÆ÷ÈË\02-src\trunk\02-controller\06-controller_can_for_sython_400w_v2\src\sythondriver\src):    std::cout<<"bit5_EMGING ="<<(UINT16)m_BitStatus.bit5_EMGING<<std::endl;
+synctronDriver.hpp (f:\local_svn\qt_Á¸¿âÑ²¼ì»úÆ÷ÈË\02-src\trunk\02-controller\06-controller_can_for_sython_400w_v2\src\sythondriver\src):		unsigned char bit5_EMGING;	   //ËÅ·şµç»ú¼±Í£×´Ì¬
+sytronDriverMode.cpp (f:\local_svn\qt_Á¸¿âÑ²¼ì»úÆ÷ÈË\02-src\trunk\02-controller\06-controller_can_for_sython_400w_v2\src\sythondriver\src):						(driverprco.m_BitStatus.bit5_EMGING == 1)){
+sytronDriverMode.cpp (f:\local_svn\qt_Á¸¿âÑ²¼ì»úÆ÷ÈË\02-src\trunk\02-controller\06-controller_can_for_sython_400w_v2\src\sythondriver\src):				  //std::cout<<"devadd="<<(int)msg->cnt[index].devadd<<" bit5_EMGING ="<<(UINT16)driverprco.m_BitStatus.bit5_EMGING<<std::endl;
+sytronDriverMode.cpp (f:\local_svn\qt_Á¸¿âÑ²¼ì»úÆ÷ÈË\02-src\trunk\02-controller\06-controller_can_for_sython_400w_v2\src\sythondriver\src):	feedback.emergencyinputvalue =driverprco.m_BitStatus.bit5_EMGING;

@@ -236,7 +236,7 @@ void usbcandevMode::usbcandevMode_master()
 			std::string recv3 =candev.pop_cur_toarray(CAN2);
 			if(recv3.size()>5){
 				ros_Can2Recvpub_SendRpc(recv3);
-				//print_hex(recv3,"Can2Recvpub");
+				
 				}
 			//boost::this_thread::sleep(boost::posix_time::milliseconds(1));
 			}
@@ -283,7 +283,7 @@ void usbcandevMode::usbcandevMode_mastercan2()
 				//std::cout<<"send size2="<< can2_srecv.size()<< std:: endl;
 				ros_Can2Recvpub_SendRpc(can2_srecv);
 				can2_srecv.clear();
-				 //print_hex(recv1,"Can1Recvpub");
+				 
 				}
 			}
         	loop_rate.sleep();
@@ -318,7 +318,7 @@ void usbcandevMode::usbcandevMode_mastercan1()
 				
 				ros_Can1Recvpub_SendRpc(can1_srecv);
 				can1_srecv.clear();
-				 //print_hex(recv1,"Can1Recvpub");
+				
 				}
 			}
         	loop_rate.sleep();
@@ -359,7 +359,7 @@ std::string usbcandevMode::pop_cur_toarray(unsigned int id){
 	        if(candev.can1buf_ptr->size()>0){
 	                    frame = *(candev.can1buf_ptr->begin());
 	                   
-	                   //printf_frame(&frame);
+	                     printf_frame(&frame);
 	                    if((frame.ID&0x000000ff)==(int)DEV_DIR_ADD_LF){
 					//是不是位置数据
 					if(frame.Data[1]==0xCA){

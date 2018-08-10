@@ -1,0 +1,91 @@
+
+catkin_create_pkg dgvmsg std_msgs rospy roscpp
+catkin_create_pkg joyde std_msgs rospy roscpp
+catkin_create_pkg laser_ctrol std_msgs rospy roscpp
+catkin_create_pkg management std_msgs rospy roscpp
+catkin_create_pkg robot2015_common std_msgs rospy roscpp
+catkin_create_pkg zmq_ros std_msgs rospy roscpp
+catkin_create_pkg sythondriver std_msgs rospy roscpp
+catkin_create_pkg ph3read std_msgs rospy roscpp
+catkin_create_pkg remoter std_msgs rospy roscpp
+catkin_create_pkg extern_sensor std_msgs rospy roscpp
+catkin_create_pkg bms std_msgs rospy roscpp
+catkin_create_pkg pantiltctrl std_msgs rospy roscpp
+
+-- ~~  - dgvmsg
+-- ~~  - joyde
+-- ~~  - laser_ctrol
+-- ~~  - management
+-- ~~  - motecdriver
+-- ~~  - robot2015_common
+-- ~~  - zmq_ros
+
+
+
+workspace_folder/        -- WORKSPACE
+  src/                   -- SOURCE SPACE
+    CMakeLists.txt       -- 'Toplevel' CMake file, provided by catkin
+    package_1/
+      CMakeLists.txt     -- CMakeLists.txt file for package_1
+      package.xml        -- Package manifest for package_1
+    ...
+    package_n/
+      CMakeLists.txt     -- CMakeLists.txt file for package_n
+      package.xml        -- Package manifest for package_n
+
+catkin_create_pkg dgvmsg std_msgs rospy roscpp
+catkin_create_pkg control_dirver std_msgs rospy roscpp
+catkin_create_pkg externllaser std_msgs rospy roscpp
+
+rm -fr build/*
+rm -fr devel/*
+catkin_make -DCATKIN_WHITELIST_PACKAGES="robot2015_common"
+catkin_make -DCATKIN_WHITELIST_PACKAGES="dgvmsg"
+source devel/setup.bash 
+catkin_make -DCATKIN_WHITELIST_PACKAGES=""
+
+
+
+catkin_make -DCATKIN_WHITELIST_PACKAGES="zmq_ros"
+
+export ROS_PACKAGE_PATH="/home/pc-robot/workspace/ubuntudev/03-controler/02-controller_232/src:/opt/ros/indigo/share:/opt/ros/indigo/stacks"
+export ROS_PACKAGE_PATH="/opt/ros/indigo/share:/opt/ros/indigo/stacks"
+"/home/pc-robot/workspace/src_controller/01-controllerBoard/02-controller_232/src:/home/pc-robot/workspace/ubuntudev/03-controler/02-controller_232/src:/opt/ros/indigo/share:/opt/ros/indigo/stacks"
+
+export | grep ROS
+��������µģ�˵������ȷ��
+declare -x ROSLISP_PACKAGE_DIRECTORIES=""
+declare -x ROS_DISTRO="indigo"
+declare -x ROS_ETC_DIR="/opt/ros/indigo/etc/ros"
+declare -x ROS_MASTER_URI="http://localhost:11311"
+declare -x ROS_PACKAGE_PATH="/opt/ros/indigo/share:/opt/ros/indigo/stacks"
+declare -x ROS_ROOT="/opt/ros/indigo/share/ros"
+
+
+https://192.168.3.9/svn/QTrobot_inspect_robot/02-src/trunk/02-controller/* .
+
+
+pc-robot@pcrobot:~$ dmesg |grep tty
+[    0.000000] console [tty0] enabled
+[    0.988594] 00:03: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[    1.010934] 00:04: ttyS1 at I/O 0x2f8 (irq = 3, base_baud = 115200) is a 16550A
+[    1.032926] 00:05: ttyS4 at I/O 0x2c0 (irq = 6, base_baud = 115200) is a 16550A
+[    1.054930] 00:06: ttyS5 at I/O 0x2c8 (irq = 6, base_baud = 115200) is a 16550A
+[    1.076908] 00:07: ttyS6 at I/O 0x2d0 (irq = 6, base_baud = 115200) is a 16550A
+[    1.098952] 00:08: ttyS7 at I/O 0x2d8 (irq = 6, base_baud = 115200) is a 16550A
+
+
+pc-robot@pcrobot:~$ dmesg |grep tty
+[    0.000000] console [tty0] enabled
+[    1.024734] 00:03: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[    1.046444] 00:04: ttyS1 at I/O 0x2f8 (irq = 3, base_baud = 115200) is a 16550A
+[    1.068025] 00:05: ttyS2 at I/O 0x3e8 (irq = 5, base_baud = 115200) is a 16550A
+[    1.089422] 00:06: ttyS3 at I/O 0x2e8 (irq = 5, base_baud = 115200) is a 16550A
+[    1.110958] 00:07: ttyS4 at I/O 0x4e0 (irq = 5, base_baud = 115200) is a 16550A
+[    1.132718] 00:08: ttyS5 at I/O 0x4e8 (irq = 5, base_baud = 115200) is a 16550A
+
+
+
+https://192.168.3.9/svn/QTrobot_inspect_robot/02-src/trunk/02-controller/06-controller_can_for_sython_400W_v2
+
+

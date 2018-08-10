@@ -1,3 +1,11 @@
----- UPDATE_FUN_NAME Matches (2 in 2 files) ----
-DgvManage.cpp (e:\百度云同步盘\项目记录\工联\04-电力巡检\07-实现src\02-车体运动控制\01-controller_can_for_sython_200w\src\management\src):	call->set_function( UPDATE_FUN_NAME);
-Zmqclient.h (e:\百度云同步盘\项目记录\工联\04-电力巡检\07-实现src\02-车体运动控制\01-controller_can_for_sython_200w\src\management\src):#define UPDATE_FUN_NAME "Dcupdataall"
+---- print_hex Matches (10 in 5 files) ----
+Message.cpp (e:\百度云同步盘\项目记录\工联\04-电力巡检\07-实现src\02-车体运动控制\controller_can_for_4_sython_200w\01-controller_can_for_4_sython_200w\src\usbcan\src): void message::print_hex(){
+Message.cpp (e:\百度云同步盘\项目记录\工联\04-电力巡检\07-实现src\02-车体运动控制\controller_can_for_4_sython_200w\01-controller_can_for_4_sython_200w\src\usbcan\src):  std::cout<< "print_hex:";
+Message.hpp (e:\百度云同步盘\项目记录\工联\04-电力巡检\07-实现src\02-车体运动控制\controller_can_for_4_sython_200w\01-controller_can_for_4_sython_200w\src\usbcan\src):    void print_hex();
+Usbcandev.cpp (e:\百度云同步盘\项目记录\工联\04-电力巡检\07-实现src\02-车体运动控制\controller_can_for_4_sython_200w\01-controller_can_for_4_sython_200w\src\usbcan\src):	                    //print_hex();
+usbcandevMode.cpp (e:\百度云同步盘\项目记录\工联\04-电力巡检\07-实现src\02-车体运动控制\controller_can_for_4_sython_200w\01-controller_can_for_4_sython_200w\src\usbcan\src):				 //print_hex(recv1,"Can1Recvpub");
+usbcandevMode.cpp (e:\百度云同步盘\项目记录\工联\04-电力巡检\07-实现src\02-车体运动控制\controller_can_for_4_sython_200w\01-controller_can_for_4_sython_200w\src\usbcan\src):				//print_hex(recv3,"Can2Recvpub");
+usbcandevMode.cpp (e:\百度云同步盘\项目记录\工联\04-电力巡检\07-实现src\02-车体运动控制\controller_can_for_4_sython_200w\01-controller_can_for_4_sython_200w\src\usbcan\src):				 //print_hex(recv1,"Can1Recvpub");
+usbcandevMode.cpp (e:\百度云同步盘\项目记录\工联\04-电力巡检\07-实现src\02-车体运动控制\controller_can_for_4_sython_200w\01-controller_can_for_4_sython_200w\src\usbcan\src):				 //print_hex(recv1,"Can1Recvpub");
+usbcandevMode.cpp (e:\百度云同步盘\项目记录\工联\04-电力巡检\07-实现src\02-车体运动控制\controller_can_for_4_sython_200w\01-controller_can_for_4_sython_200w\src\usbcan\src): void usbcandevMode::print_hex(std::string str,std::string com)
+usbcandevMode.hpp (e:\百度云同步盘\项目记录\工联\04-电力巡检\07-实现src\02-车体运动控制\controller_can_for_4_sython_200w\01-controller_can_for_4_sython_200w\src\usbcan\src):	 void print_hex(std::string str,std::string com);

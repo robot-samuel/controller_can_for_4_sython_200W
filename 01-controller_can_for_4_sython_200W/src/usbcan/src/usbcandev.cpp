@@ -686,7 +686,7 @@ std::string usbcandev::pop_cur_toarray(unsigned int id){
 	if(id == CAN1){	
 	        if(can1buf_ptr->size()>0){
 	                    frame = *(can1buf_ptr->begin());
-	                    //print_fram(frame);
+	                  
 	                   
 	                    
 	                    cur_data[0] = frame.DataLen;
@@ -704,7 +704,7 @@ std::string usbcandev::pop_cur_toarray(unsigned int id){
 	                    cur_data[12] = frame.Data[7];
 		  	     std::string res1(cur_data.begin(),cur_data.end());
 			     can1buf_ptr->pop_front();	
-	                    //print_hex();
+	                   
 	                    return res1;
 	            }
 			 return res;

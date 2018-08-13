@@ -725,13 +725,13 @@ void sytronDriverMode::CAN_EncounterCall(const dgvmsg::EncounterV::ConstPtr& msg
 		if(msg->cnt[index].devadd ==DEV_add){
 				driverprco.m_DrivStatus = msg->cnt[index].DrivStatus;
 				driverprco.recordBitstauts(driverprco.m_DrivStatus);
-				 #if 1
-				 //std::cout<<"devadd="<<(int)msg->cnt[index].devadd;
-				 //std::cout<<" m_DrivStatus ="<<driverprco.m_DrivStatus<<std::endl;
-				   // std::cout<<"bit0_isSRDY ="<<(UINT16)driverprco.m_BitStatus.bit0_isSRDY<<std::endl;
-				   // std::cout<<"bit1_isENA_SRV ="<<(UINT16)driverprco.m_BitStatus.bit1_isENA_SRV<<std::endl;
-				    //std::cout<<"bit2_isRes1 ="<<(UINT16)driverprco.m_BitStatus.bit2_isRes1<<std::endl;
-				   // std::cout<<"bit3_isFault ="<<(UINT16)driverprco.m_BitStatus.bit3_isFault<<std::endl;
+				 #if 0
+				 std::cout<<"devadd="<<(int)msg->cnt[index].devadd;
+				 std::cout<<" m_DrivStatus ="<<driverprco.m_DrivStatus<<std::endl;
+				   std::cout<<"bit0_isSRDY ="<<(UINT16)driverprco.m_BitStatus.bit0_isSRDY<<std::endl;
+				   std::cout<<"bit1_isENA_SRV ="<<(UINT16)driverprco.m_BitStatus.bit1_isENA_SRV<<std::endl;
+				   std::cout<<"bit2_isRes1 ="<<(UINT16)driverprco.m_BitStatus.bit2_isRes1<<std::endl;
+				   /std::cout<<"bit3_isFault ="<<(UINT16)driverprco.m_BitStatus.bit3_isFault<<std::endl;
 				   // std::cout<<"bit4_isRes2 ="<<(UINT16)driverprco.m_BitStatus.bit4_isRes2<<std::endl;
 				  //std::cout<<"devadd="<<(int)msg->cnt[index].devadd<<" bit5_EMGING ="<<(UINT16)driverprco.m_BitStatus.bit5_EMGING<<std::endl;
 				   // std::cout<<"bit6_isDIS_SRV ="<<(UINT16)driverprco.m_BitStatus.bit6_isDIS_SRV<<std::endl;

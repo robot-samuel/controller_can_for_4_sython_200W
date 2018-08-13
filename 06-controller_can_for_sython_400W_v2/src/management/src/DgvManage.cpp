@@ -2072,7 +2072,7 @@ int  Dgv_Manage::Zmq_Recv_ctrlmode_autudoor(PackageMessage &MsgRECV)
 		    {  
 		        cmd=0;  
 		    } 
-		  ros_pub_RemoterCmd_SendRpc(cmd);
+		  //ros_pub_RemoterCmd_SendRpc(cmd);
 		}
       //序列化到内存
     std::ostringstream stream;

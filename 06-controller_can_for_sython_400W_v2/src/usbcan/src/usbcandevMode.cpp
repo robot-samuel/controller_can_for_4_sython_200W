@@ -359,7 +359,7 @@ std::string usbcandevMode::pop_cur_toarray(unsigned int id){
 	        if(candev.can1buf_ptr->size()>0){
 	                    frame = *(candev.can1buf_ptr->begin());
 	                   
-	                   printf_frame(&frame);
+	                    //printf_frame(&frame);
 	                    if((frame.ID&0x000000ff)==(int)DEV_DIR_ADD_LF){
 					//是不是位置数据
 					if(frame.Data[1]==0xCA){

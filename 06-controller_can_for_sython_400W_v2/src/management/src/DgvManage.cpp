@@ -80,133 +80,7 @@ Dgv_Manage::~Dgv_Manage()
 
 
 }
- void Dgv_Manage::RemoterInfo_ros_cmdCall(const dgvmsg::remoter::ConstPtr& msg)
-{
-		statues.RemoteNode.Set_connect();
-		if(msg->online == 1){
-		if((msg->IOSTATUES1[0] == YES)&&(msg->IOSTATUES1[6]==NO)){
-                   
-                    statues.Remoteconnect = YES;
-                }
-		else{
-			 statues.Remoteconnect = NO;
-			 statues.Remote_count = 0;
-			}
 
-
-		//存储关键值
-	
-		statues.Remotestdmsg.linear.x = msg->linear.x;   //LX
-		statues.Remotestdmsg.linear.y =  msg->linear.y;  //LY  前后
-		statues.Remotestdmsg.linear.z = msg->linear.z;
-
-		statues.Remotestdmsg.angular.x = msg->angular.x;  //RX  左右
-		statues.Remotestdmsg.angular.y =  msg->angular.y;  //RY
-		//statues.Remotestdmsg.angular.x = msg->angular.x;
-		//statues.Remotestdmsg.angular.y = msg->angular.y;
-		statues.Remotestdmsg.angular.z = msg->angular.z;
-
-
-		statues.Remotestdmsg.IOSTATUES1[0] = msg->IOSTATUES1[0];
-		statues.Remotestdmsg.IOSTATUES1[1] = msg->IOSTATUES1[1];
-		statues.Remotestdmsg.IOSTATUES1[2] = msg->IOSTATUES1[2];
-		statues.Remotestdmsg.IOSTATUES1[3] = msg->IOSTATUES1[3];
-		statues.Remotestdmsg.IOSTATUES1[4] = msg->IOSTATUES1[4];
-		statues.Remotestdmsg.IOSTATUES1[5] = msg->IOSTATUES1[5];
-		statues.Remotestdmsg.IOSTATUES1[6] = msg->IOSTATUES1[6];
-		statues.Remotestdmsg.IOSTATUES1[7] = msg->IOSTATUES1[7];
-
-		statues.Remotestdmsg.IOSTATUES2[0] = msg->IOSTATUES2[0];
-		statues.Remotestdmsg.IOSTATUES2[1] = msg->IOSTATUES2[1];
-		statues.Remotestdmsg.IOSTATUES2[2] = msg->IOSTATUES2[2];
-		statues.Remotestdmsg.IOSTATUES2[3] = msg->IOSTATUES2[3];
-		statues.Remotestdmsg.IOSTATUES2[4] = msg->IOSTATUES2[4];
-		statues.Remotestdmsg.IOSTATUES2[5] = msg->IOSTATUES2[5];
-		statues.Remotestdmsg.IOSTATUES2[6] = msg->IOSTATUES2[6];
-		statues.Remotestdmsg.IOSTATUES2[7] = msg->IOSTATUES2[7];	
-
-		statues.Remotestdmsg.buttons[0] = msg->buttons[0];
-		statues.Remotestdmsg.buttons[1] = msg->buttons[1];
-		statues.Remotestdmsg.buttons[2] = msg->buttons[2];
-		statues.Remotestdmsg.buttons[3] = msg->buttons[3];
-		statues.Remotestdmsg.buttons[4] = msg->buttons[4];
-		statues.Remotestdmsg.buttons[5] = msg->buttons[5];
-		statues.Remotestdmsg.buttons[6] = msg->buttons[6];
-		statues.Remotestdmsg.buttons[7] = msg->buttons[7];	
-
-              if( statues.Remoteconnect == YES){
-			  	//控制连接的时候生效
-		//前避障开关
-		if(statues.Remotestdmsg.IOSTATUES1[2] == YES){
-			ParamConfig_Config_Error_Mode * Config_Error_Mode = statues.config.mutable_config_error_msg();
-			Config_Error_Mode->set_obstaclestoperror_ischeck(true);
-		}
-		else{
-			ParamConfig_Config_Error_Mode * Config_Error_Mode = statues.config.mutable_config_error_msg();
-			Config_Error_Mode->set_obstaclestoperror_ischeck(false);
-			}
-		//后避障
-		if(statues.Remotestdmsg.IOSTATUES1[3] == YES){
-			ParamConfig_Config_Error_Mode * Config_Error_Mode = statues.config.mutable_config_error_msg();
-			Config_Error_Mode->set_bobstaclestoperror_ischeck(true);
-		}
-		else{
-			ParamConfig_Config_Error_Mode * Config_Error_Mode = statues.config.mutable_config_error_msg();
-			Config_Error_Mode->set_bobstaclestoperror_ischeck(false);
-			}
-
-		//防跌落控制
-		if(statues.Remotestdmsg.IOSTATUES1[4] == YES){
-			ParamConfig_Config_Error_Mode * Config_Error_Mode = statues.config.mutable_config_error_msg();
-			Config_Error_Mode->set_dropstoperror_ischeck(true);
-		}
-		else{
-			ParamConfig_Config_Error_Mode * Config_Error_Mode = statues.config.mutable_config_error_msg();
-			Config_Error_Mode->set_dropstoperror_ischeck(false);
-			}
-
-		//低速高速切换
-		//在主循环里面判断
-		
-              	}
-		#if 0
-			//消息打印
-		std::cout<<"Remotestdmsg.linear.x = "<< statues.Remotestdmsg.linear.x<<std::endl;
-		std::cout<<"Remotestdmsg.linear.y = "<< statues.Remotestdmsg.linear.y<<std::endl;
-		std::cout<<"Remotestdmsg.angular.x = "<< statues.Remotestdmsg.angular.x<<std::endl;
-		std::cout<<"Remotestdmsg.angular.y = "<< statues.Remotestdmsg.angular.y<<std::endl;
-		#endif
-			}
-		else{
-				statues.msg_init();
-			}
-	
- } 
-
- void Dgv_Manage::Ph3Info_ros_cmdCall(const std_msgs::String::ConstPtr& msg)
-{
-	// Verify that the version of the library that we linked against is
-	// compatible with the version of the headers we compiled against.
-	GOOGLE_PROTOBUF_VERIFY_VERSION;
-	std::string Infostr = msg->data;	
-	if(Infostr.size()>3){ 
-		//std::cout << "======Ph3Info_ros_cmdCall======"<<std::endl;
-		try{
-		ph3airmsg msg;
-		msg.ParseFromString(Infostr); 
-		if(msg.has_online()&&msg.has_ph3_ppm()){
-				statues.Ph3ModeInfo.CopyFrom(msg);
-				//statues.Ph3ModeInfo.ParseFromString(Infostr);
-				statues.Ph3SysNode.Set_connect();
-			}
-			}
-		catch(google::protobuf::FatalException e){
-				
-				std::cout << "======ExternInfo_ros_cmdCall======"<<std::endl;
-				std::cout << e.what() << std::endl;
-			}
-		}
- } 
 
  void Dgv_Manage::BmsInfo_ros_cmdCall(const std_msgs::String::ConstPtr& msg)
 {
@@ -531,41 +405,7 @@ float Dgv_Manage::check_jody_speed(int id,float cmd)
 	return velocity;
 }
 
-float Dgv_Manage::check_remoter_speed(int id,unsigned int cmd)
-{
 
-	int velocity=0;
-	if(id == 0){
-		//speed
-		velocity = cmd ;
-		velocity*=((remtorMAXSPEED*1.0)/(115*1.0));	
-		if(fabs(velocity)>remtorMAXSPEED){
-			if(velocity>0){
-				velocity = remtorMAXSPEED;
-				}
-			else if(velocity<0){
-				velocity = 0-remtorMAXSPEED;
-				}
-			return velocity;
-			}
-	}
-	else{
-		//angle
-		velocity = cmd  ;
-		velocity*=((remtorMAXANGEL*1.0)/(115*1.0));	
-		if(fabs(velocity)>remtorMAXANGEL){
-			if(velocity>0){
-				velocity = remtorMAXANGEL;
-				}
-			else if(velocity<0){
-				velocity = 0-remtorMAXANGEL;
-				}
-			return velocity;
-			}
-		}
-	
-	return velocity;
-}
 
 void Dgv_Manage::record_joy_cmd(){
 	
@@ -602,39 +442,7 @@ void Dgv_Manage::ros_pub_joy_autorun()
 	 
      ros_Net2Ctrl_SendRpc("",(int)speed,(int)angel);
 }
-void Dgv_Manage::record_remoter_cmd(){
 
-     float  speed=check_remoter_speed(0,(int)(statues.Remotestdmsg.linear.y*-1));
-     float angel   =check_remoter_speed(1,(int)(statues.Remotestdmsg.angular.x*-1));
-     if(fabs(speed)<=10){
-		speed=0;	
-     	}
-     if(fabs(angel)<=10){
-		angel=0;	
-
-     	}
-      //记录速度指令 
-     statues.cmd_angelVelocity = (int)(speed);
-     statues.cmd_speedVelocity = (int)(angel);
-}
-void Dgv_Manage::ros_pub_remoter_autorun()
-{
-    dgvmsg::ctrl_ModeMessage dirvcmd_velocity; 
-
-     dirvcmd_velocity = statues.laserCmd;
-	
-     float  speed=check_remoter_speed(0,(int)(statues.Remotestdmsg.linear.y*-1));
-     float angel   =check_remoter_speed(1,(int)(statues.Remotestdmsg.angular.x*-1));
-     if(fabs(speed)<=10){
-		speed=0;	
-     	}
-     if(fabs(angel)<=10){
-		angel=0;	
-
-     	}
-    ros_Net2Ctrl_SendRpc("",(int)speed,(int)angel);
-
-}
 
 void Dgv_Manage::record_LaserCtrl_cmd()
 {
@@ -720,25 +528,6 @@ int Dgv_Manage::check_connect()
                     statues.joystick_count =0;
                 }
 
-               if(statues.Remoteconnect== YES){
-                  statues.Remote_count++;
-                  if(statues.Remote_count >=90){             
-                         //触发一次超时接收
-                        #if 1
-                         ROS_INFO("Remoteconnect is losted **********************************");
-                        #endif
-                         statues.Remote_count =0;
-                         statues.Remoteconnect = NO;
-     			    statues.msg_init();
-			  ros_Net2Ctrl_SendRpc("",0,0);
-                         //ctrl_ID = NONE;
-                         
-                     }
-                }
-              else{
-                    statues.Remote_count =0;
-		     statues.msg_init();
-                }
 			  
 
 	if(statues.Laser_isconnect== YES){
@@ -1412,14 +1201,7 @@ std::string Dgv_Manage::Pack_EXterncmd_CtrlLight(int cmd){
 
     return res;    
 }
-void Dgv_Manage::ros_pub_RemoterCmd_SendRpc(int cmd)
-{   
 
-	dgvmsg::remoterctrl ctrlmsg;
-	ctrlmsg.ctrl_autodoor = cmd;
-     rospub_mode_RemoterCmd.publish(ctrlmsg);
-     ros::spinOnce();
-}
 void Dgv_Manage::ros_pub_EXterncmd_SendRpc(std::string msg)
 {   
 

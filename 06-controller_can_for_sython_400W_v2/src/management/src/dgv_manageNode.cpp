@@ -65,7 +65,7 @@ int main(int argc, char **argv)
 
 	//发送给协处理器的控制命令
 	Manager.rospub_mode_ExternCmd =  handel->advertise<std_msgs::String>("extern_sensor/cmd", 1);
-	Manager.rospub_mode_RemoterCmd =  handel->advertise<dgvmsg::remoterctrl>("RemoterNode/cmd", 1);
+	
 	//发送给BMS模块的配置命令
 	Manager.rospub_mode_BMSModeCmd =  handel->advertise<std_msgs::String>("Bms_Mode/cmd", 1);            
 
@@ -99,16 +99,8 @@ int main(int argc, char **argv)
 	handel->subscribe("BmsInfo", 10, &Dgv_Manage::BmsInfo_ros_cmdCall,&Manager);
 	ROS_INFO("  Initialization rossub_mode_BMS[topic = %s] port  is ok","BmsInfo");
 
-	//来自磷化氢模块
-	ros::Subscriber rossub_mode_PH3 =
-	handel->subscribe("Ph3Info", 10, &Dgv_Manage::Ph3Info_ros_cmdCall,&Manager);
-	ROS_INFO("  Initialization rossub_mode_PH3[topic = %s] port  is ok","Ph3Info");
 
 
-	//来自无线操控箱的消息
-	ros::Subscriber rossub_mode_remote =
-	handel->subscribe("RemoterInfo", 10, &Dgv_Manage::RemoterInfo_ros_cmdCall,&Manager);
-	ROS_INFO("  Initialization rossub_mode_remote[topic = %s] port  is ok","RemoterInfo");	
             //建立主循环线程
              boost::thread th_main(boost::bind(&Dgv_Manage::th_mainloop,&Manager));
 

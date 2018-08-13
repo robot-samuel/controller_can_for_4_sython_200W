@@ -87,11 +87,11 @@ Dgv_statues::Dgv_statues()
 	//急停预警检查使能
 	Config_Alarm_Mode->set_emergency_status_stop_ischeck(true);
 	//车厢高温预警
-	Config_Alarm_Mode->set_ctrolboxhightemalarm_ischeck(true);
+	Config_Alarm_Mode->set_ctrolboxhightemalarm_ischeck(false);
 	//PH3模块检查
-	Config_Alarm_Mode->set_ph3readnodeoff_ischeck(true);
+	Config_Alarm_Mode->set_ph3readnodeoff_ischeck(false);
 	//PH3模块串口通信减产
-	Config_Alarm_Mode->set_ph3readcomlost_ischeck(true);
+	Config_Alarm_Mode->set_ph3readcomlost_ischeck(false);
 	//USB遥控模块
 	Config_Alarm_Mode->set_joytestnodeoff_ischeck(true);
 	

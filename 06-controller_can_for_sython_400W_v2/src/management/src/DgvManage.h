@@ -110,8 +110,6 @@ class Dgv_Manage
 		 void ExternInfo_ros_cmdCall(const std_msgs::String::ConstPtr& msg);
 		  void BmsInfo_ros_cmdCall(const std_msgs::String::ConstPtr& msg);
 		 void Ultrasound_ros_cmdCall(const std_msgs::String::ConstPtr& msg);
-		 void Ph3Info_ros_cmdCall(const std_msgs::String::ConstPtr& msg);
-		  void RemoterInfo_ros_cmdCall(const dgvmsg::remoter::ConstPtr& msg);
 		 void Drivers_ros_cmdCall(const dgvmsg::DriverStatues::ConstPtr& msg);
 		 
 		 std::string  pack_dirv_Dcupdataal();
@@ -119,15 +117,13 @@ class Dgv_Manage
 		 void ros_LaserNet2Ctrl_SendRpc(std::string scmd,int Lspeed,int Rspeed);
 		 void trans_4_Laservelocity( float leftspeed, float rightspeed);
 
-		 void record_remoter_cmd();
-		float check_remoter_speed(int id,unsigned int cmd);
-		void ros_pub_remoter_autorun();
+
 
 		std::string Pack_EXterncmd_CtrlLight(int cmd);
-		void ros_pub_RemoterCmd_SendRpc(int cmd);
+		
 		void ros_updateconfig_SendRpc(std::string msg);
 		void CtrlIDturn();
-		void pack_audiohelp(std::string cmd);
+		
 		
     public:
 

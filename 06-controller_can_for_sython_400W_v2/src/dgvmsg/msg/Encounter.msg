@@ -17,3 +17,4 @@ Header header
 int32 devadd
 time now
 uint32 encounter
+uint16 DrivStatus

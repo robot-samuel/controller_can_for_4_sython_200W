@@ -41,9 +41,9 @@
     <!-- <node pkg="zmq_ros" name="ZmqProxy"  type="proxy_center" output="screen"/>-->
 
     <node pkg="sythondriver" name="sythondriver_LF"  type="sythondriver_single" output="screen" args="$(arg DEV_DIR_ADD_LF) $(arg CAN1) 1" />
-    <node pkg="sythondriver" name="sythondriver_LB"  type="sythondriver_single" output="screen" args="$(arg DEV_DIR_ADD_LB) $(arg CAN1) 1" />
+   <!-- <node pkg="sythondriver" name="sythondriver_LB"  type="sythondriver_single" output="screen" args="$(arg DEV_DIR_ADD_LB) $(arg CAN1) 1" />  -->
 	<node pkg="sythondriver" name="sythondriver_RF"  type="sythondriver_single" output="screen" args="$(arg DEV_DIR_ADD_RF) $(arg CAN2) -1" />
-	<node pkg="sythondriver" name="sythondriver_RB"  type="sythondriver_single" output="screen" args="$(arg DEV_DIR_ADD_RB) $(arg CAN2) -1" />
+	<!--<node pkg="sythondriver" name="sythondriver_RB"  type="sythondriver_single" output="screen" args="$(arg DEV_DIR_ADD_RB) $(arg CAN2) -1" /> -->  
 	<node pkg="usbcan" name="usbcandevNode"  type="usbcandevNode" output="screen" args="0x1400" />
 	
 	<!-- COM1 -->    
@@ -57,8 +57,5 @@
 	
     <node pkg="zmq_ros" name="ZmqTransNode"  type="ZmqtransNode" output="screen"/>
 	
-	<!-- <node pkg="pantiltctrl" name="pantiltctrlNode"  type="pantiltctrlNode" output="screen" />-->
-	
-	<!-- COM4 -->
-	<!-- <node pkg="remoter" name="RemoterNode"  type="RemoterNode" output="screen" args="$(arg COM4) $(arg BANDRATE_9600)"/>-->
+
 </launch>

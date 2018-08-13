@@ -202,7 +202,7 @@ class Dgv_Manage
 	ros::Publisher rospub_mode_updateconfig;
 	ros::Publisher rospub_mode_RemoterCmd;
 
-	const float de_ReductionRatiol = 32;
+	const float de_ReductionRatiol = 40;
 	const float de_WheelSsize = 3.1415*0.3200;  //轮子周长 12寸轮子
 	
 	const float deLF_WheelSsize = 3.1415*0.3200;  //轮子周长 12寸轮子LF

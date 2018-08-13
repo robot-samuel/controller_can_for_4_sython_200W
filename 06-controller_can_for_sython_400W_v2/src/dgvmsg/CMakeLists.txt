@@ -29,8 +29,6 @@ find_package(catkin REQUIRED COMPONENTS
 	remoter.msg
 	remoterctrl.msg
 	DriverStatues.msg
-	Bms.msg
-	ExternSensor.msg
  )
 
 generate_messages(DEPENDENCIES  geometry_msgs)

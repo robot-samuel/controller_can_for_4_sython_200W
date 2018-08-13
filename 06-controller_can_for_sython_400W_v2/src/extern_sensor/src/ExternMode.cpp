@@ -48,7 +48,9 @@ ExternMode::ExternMode(std::string& port, unsigned int rate)
 
 	 fan1_mode=Mode_open;    //±¬ÉÁµÆ
 	 fan2_mode=Mode_open;
-	 Ledcolor = Mode_red_fli;
+	 //Ledcolor = Mode_red_fli;
+	 Ledcolor = Mode_green_fli;
+	//Ledcolor = Mode_blue_fli;
 
 	 fan1_open=35;
 	 fan1_close = 20;
@@ -1283,7 +1285,7 @@ void ExternMode::Record_Extend_buffer()
 	pMode_PX24ES->set_out2(((PX24>>1)&0x01));
 	pMode_PX24ES->set_extraneouslight_out(((PX24>>2)&0x01));
 
-	#if 0
+	#if 0 
 	Printf_Extend_buffer();
 	#endif
 

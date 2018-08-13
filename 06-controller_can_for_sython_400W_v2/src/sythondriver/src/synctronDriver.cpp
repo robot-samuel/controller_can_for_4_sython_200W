@@ -735,6 +735,22 @@ void synctronDriver::paramRecord(message &msg,CMD cmd){
                             
                             break;
 
+			case DN032_DIO_IN:
+				//unsigned short int data= 
+				#if 0
+				m_Dins = msg.get_data_m_param4();
+				//m_BitStatus.bit5_EMGING
+				if(m_Dins == 0x0017){
+						m_BitStatus.bit5_EMGING = 0;   //
+					}
+				else{
+						m_BitStatus.bit5_EMGING = 1;   //¼±Í£±»´¦·£
+					}
+				
+				std::cout<< "sytronDriver:recv:DN032_DIO_IN: ";
+				std::cout<<boost::format("%02X ")%m_Dins<<std::endl;
+				#endif
+				 break;
                     default:
                         std::cout<<"paramRecord default=";
                          msg.print_hex();

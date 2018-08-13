@@ -67,7 +67,7 @@ Dgv_statues::Dgv_statues()
 	Config_Error_Mode->set_leftfdrivercomerror_ischeck(true);
 
 	//≈ˆ◊≤Õ£≥µ
-	Config_Error_Mode->set_cashswitchstoperror_ischeck(true);
+	Config_Error_Mode->set_cashswitchstoperror_ischeck(false);
 	//±‹’œÕ£≥µ
 	Config_Error_Mode->set_obstaclestoperror_ischeck(false);
 	//∫Û±‹’œ

@@ -586,10 +586,19 @@ void Dgv_Manage::ros_pub_joy_autorun()
     geometry_msgs::Twist dirvcmd_velocity; 
 
      dirvcmd_velocity = statues.Joycmd_velocity;
-
+     #if 1
+ 	std::cout<<"linear.x = "<<dirvcmd_velocity.linear.x<<std::endl;
+	std::cout<<"angular.x = "<<dirvcmd_velocity.angular.x<<std::endl;
+// 	std::cout<<"speed = "<<speed<<std::endl;
+//	std::cout<<"angel = "<<angel<<std::endl;
+     #endif
      float  speed =check_jody_speed(0,dirvcmd_velocity.linear.x);
      float angel  =check_jody_speed(1,dirvcmd_velocity.angular.x);
+    #if 1
+	std::cout<<"speed = "<<speed<<std::endl;
+	std::cout<<"angel = "<<angel<<std::endl;
 
+    #endif
 	 
      ros_Net2Ctrl_SendRpc("",(int)speed,(int)angel);
 }

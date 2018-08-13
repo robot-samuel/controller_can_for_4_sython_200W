@@ -183,6 +183,7 @@ void sytronDriverMode::sytronDriverMode_master()
                          //错误报警
 			 				 
                           //检查是否有报警
+/*
                         for(int index=0 ; index < 1 ;index++){
                                      if((driverprco.m_BitStatus.bit3_isFault ==1) ||
 						(driverprco.m_BitStatus.bit7_Warning == 1) ||
@@ -196,7 +197,7 @@ void sytronDriverMode::sytronDriverMode_master()
                                         }
                                      
                             } 
-			
+*/			
                         //所有状态OK
                         if((preokstatues_ptr != 0) &&(statues_ptr == 0)){
                                  int ok=0;
@@ -725,19 +726,17 @@ void sytronDriverMode::CAN_EncounterCall(const dgvmsg::EncounterV::ConstPtr& msg
 		if(msg->cnt[index].devadd ==DEV_add){
 				driverprco.m_DrivStatus = msg->cnt[index].DrivStatus;
 				driverprco.recordBitstauts(driverprco.m_DrivStatus);
-				  #if 1
-				  if((int)msg->cnt[index].devadd == 100){
-					 std::cout<<"devadd="<<(int)msg->cnt[index].devadd;
-					 std::cout<<" m_DrivStatus ="<<driverprco.m_DrivStatus<<std::endl;
-					  std::cout<<"bit0_isSRDY ="<<(UINT16)driverprco.m_BitStatus.bit0_isSRDY<<std::endl;
-					 std::cout<<"bit1_isENA_SRV ="<<(UINT16)driverprco.m_BitStatus.bit1_isENA_SRV<<std::endl;
-					 std::cout<<"bit2_isRes1 ="<<(UINT16)driverprco.m_BitStatus.bit2_isRes1<<std::endl;
-					 std::cout<<"bit3_isFault ="<<(UINT16)driverprco.m_BitStatus.bit3_isFault<<std::endl;
-					  std::cout<<"bit4_isRes2 ="<<(UINT16)driverprco.m_BitStatus.bit4_isRes2<<std::endl;
-					 std::cout<<"bit5_EMGING="<<(UINT16)driverprco.m_BitStatus.bit5_EMGING<<std::endl;
-					 std::cout<<"bit6_isDIS_SRV ="<<(UINT16)driverprco.m_BitStatus.bit6_isDIS_SRV<<std::endl;
-					  std::cout<<"bit7_Warning ="<<(UINT16)driverprco.m_BitStatus.bit7_Warning<<std::endl;
-				  	}
+				 #if 1
+				 //std::cout<<"devadd="<<(int)msg->cnt[index].devadd;
+				 //std::cout<<" m_DrivStatus ="<<driverprco.m_DrivStatus<<std::endl;
+				   // std::cout<<"bit0_isSRDY ="<<(UINT16)driverprco.m_BitStatus.bit0_isSRDY<<std::endl;
+				   // std::cout<<"bit1_isENA_SRV ="<<(UINT16)driverprco.m_BitStatus.bit1_isENA_SRV<<std::endl;
+				    //std::cout<<"bit2_isRes1 ="<<(UINT16)driverprco.m_BitStatus.bit2_isRes1<<std::endl;
+				   // std::cout<<"bit3_isFault ="<<(UINT16)driverprco.m_BitStatus.bit3_isFault<<std::endl;
+				   // std::cout<<"bit4_isRes2 ="<<(UINT16)driverprco.m_BitStatus.bit4_isRes2<<std::endl;
+				  //std::cout<<"devadd="<<(int)msg->cnt[index].devadd<<" bit5_EMGING ="<<(UINT16)driverprco.m_BitStatus.bit5_EMGING<<std::endl;
+				   // std::cout<<"bit6_isDIS_SRV ="<<(UINT16)driverprco.m_BitStatus.bit6_isDIS_SRV<<std::endl;
+				   // std::cout<<"devadd="<<(int)msg->cnt[index].devadd<<"bit7_Warning ="<<(UINT16)driverprco.m_BitStatus.bit7_Warning<<std::endl;
 				 #endif
 			}
 		}
@@ -760,8 +759,8 @@ void sytronDriverMode::Net2Ctrl_driverCall(const dgvmsg::DriverVelocity::ConstPt
 			if(cmdmsg->driver[index].add ==DEV_add){
 					speed = cmdmsg->driver[index].VRPM;
 					SetSpeed(speed);
-					//std::cout<<"add="<<(int)this->driverprco.Getadd();
-					//std::cout<<" speed="<<speed<<std::endl;
+					std::cout<<"add="<<(int)this->driverprco.Getadd();
+					std::cout<<" speed="<<speed<<std::endl;
 				}
 		}
     

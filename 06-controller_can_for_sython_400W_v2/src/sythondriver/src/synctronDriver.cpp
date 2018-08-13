@@ -1017,7 +1017,7 @@ void synctronDriver::recordBitstauts(UINT16 statues)
 	m_BitStatus.bit15_isRes8 = (statues>>15)&0x0001; 
      
     //#if DEBUG_ECHO
-    //#if 1
+    #if 0
     std::cout<<"bit0_isSRDY ="<<(UINT16)m_BitStatus.bit0_isSRDY<<std::endl;
     std::cout<<"bit1_isENA_SRV ="<<(UINT16)m_BitStatus.bit1_isENA_SRV<<std::endl;
     std::cout<<"bit2_isRes1 ="<<(UINT16)m_BitStatus.bit2_isRes1<<std::endl;

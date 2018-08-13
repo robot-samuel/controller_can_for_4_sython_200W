@@ -183,7 +183,7 @@ void sytronDriverMode::sytronDriverMode_master()
                          //错误报警
 			 				 
                           //检查是否有报警
-/*
+
                         for(int index=0 ; index < 1 ;index++){
                                      if((driverprco.m_BitStatus.bit3_isFault ==1) ||
 						(driverprco.m_BitStatus.bit7_Warning == 1) ||
@@ -197,7 +197,7 @@ void sytronDriverMode::sytronDriverMode_master()
                                         }
                                      
                             } 
-*/			
+		
                         //所有状态OK
                         if((preokstatues_ptr != 0) &&(statues_ptr == 0)){
                                  int ok=0;
@@ -726,7 +726,7 @@ void sytronDriverMode::CAN_EncounterCall(const dgvmsg::EncounterV::ConstPtr& msg
 		if(msg->cnt[index].devadd ==DEV_add){
 				driverprco.m_DrivStatus = msg->cnt[index].DrivStatus;
 				driverprco.recordBitstauts(driverprco.m_DrivStatus);
-				 #if 1
+				 #if 0
 				 if(msg->cnt[index].devadd ==100){
 				 std::cout<<"devadd="<<(int)msg->cnt[index].devadd;
 				 std::cout<<" m_DrivStatus ="<<driverprco.m_DrivStatus<<std::endl;

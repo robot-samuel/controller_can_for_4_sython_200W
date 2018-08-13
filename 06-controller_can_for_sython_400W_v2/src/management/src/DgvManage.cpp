@@ -339,15 +339,7 @@ void Dgv_Manage:: joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
                     statues.joyconnect = YES;
                 }
 
-	     if((joy->buttons[0]==YES)&&(joy->buttons[5]==YES)){
-		 	//关门
-			ros_pub_RemoterCmd_SendRpc(0);
-	     	}
-		 
-	     if((joy->buttons[3]==YES)&&(joy->buttons[5]==YES)){
-		 	//开门
-			ros_pub_RemoterCmd_SendRpc(1);
-	     	}
+
 		 
             if(fabs(statues.Joycmd_velocity.linear.x)<0.1 ){
 			statues.Joycmd_velocity.linear.x= 0.0;
@@ -842,41 +834,6 @@ void Dgv_Manage::th_mainloop()
 				statues.laserCmdClear();
                             	}
 			}
-            else if(ctrl_ID == REMOTE_JOY){
-				#if DUBUG_ECHO
-		         std::cout<<"ctrl_ID == REMOTE_JOY"<<std::endl;
-				#endif
-                        car_run_ptr =CAR_CTRL_DEFAUL; 
-			if(statues.Remotestdmsg.IOSTATUES1[5] == YES){
-					//高速
-					 remtorMAXSPEED = 1200 ;  //可被遥控器控制最大速度 寸mm/s
-					 remtorMAXANGEL = 600;  //可被遥控器控制最大速度 寸mm/s	
-				 
-				}
-			else{
-					//低速
-					 remtorMAXSPEED = 600 ;  //可被遥控器控制最大速度 寸mm/s
-					 remtorMAXANGEL = 400;  //可被遥控器控制最大速度 寸mm/s	
-					
-
-				}
-			  record_remoter_cmd();
-                        if(is_carcanbectrl()){
-	                       
-				ros_pub_remoter_autorun();
-	                        cmd_angelVelocity = 0;
-	                       cmd_speedVelocity = 0;
-				 //statues.JoycmdClear();
-                            }
-                        else{
-	                             cmd_angelVelocity = 0;
-	                            	cmd_speedVelocity = 0;
-					statues.msg_init();
-					ros_pub_remoter_autorun();
-	                           
-                            }
-				
-                    }
             else{
                         #if DUBUG_ECHO
                         std::cout<<"ctrl_ID == NONE"<<std::endl;
@@ -2611,33 +2568,6 @@ std::string  Dgv_Manage::pack_dirv_Dcupdataal()
 
 
     return res;    
-    
-}
-void Dgv_Manage::pack_audiohelp(std::string cmd)
-{
-
-	// Verify that the version of the library that we linked against is
-	// compatible with the version of the headers we compiled against.
-	GOOGLE_PROTOBUF_VERIFY_VERSION; 
-	PackageMessage packMSg;
-	packMSg.Clear();
-	packMSg.set_sessionid(get_session());
-	packMSg.set_from(ZMQ_NAME_DRIVERCTRL);
-	packMSg.set_to(ZMQ_NAME_AUDISERV);
-
-	PackageMessage_Call * call = packMSg.mutable_callmessage();
-	call->set_function( "BrocastText");
-	call->add_parameters(cmd);
-
-      //序列化到内存
-    std::ostringstream stream;
-    packMSg.SerializeToOstream(&stream);
-	
-    std::string text = stream.str();
-    
-  // printPackageMessage(text);
-    //发送出去
-    ros_zmqreturn_SendRpc(text);
     
 }
 
